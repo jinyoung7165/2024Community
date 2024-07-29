@@ -1,0 +1,62 @@
+#local, dev, prod 공통 설정
+application:
+  version: 1.0.0
+  title: community
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  sql:
+    init:
+      platform: postgres
+  jpa:
+    open-in-view: false
+    database: postgresql
+    hibernate:
+      default_batch_fetch_size: 100
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+  servlet:
+    multipart:
+      maxFileSize: 30MB
+      maxRequestSize: 30MB
+server:
+  forward-headers-strategy: framework
+  use-forward-headers: true
+--- #local 환경
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: application-oauth.yml
+  jpa.hibernate.ddl-auto: create-drop
+logging:
+  level:
+    root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+--- #dev 환경
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: application-oauth.yml
+logging:
+  level:
+    root: info
+
+--- #prod 환경
+spring:
+  config:
+    activate:
+      on-profile: prod
+    import: application-oauth.yml
+  jpa.hibernate.ddl-auto: update
+server:
+  port: 9090
+logging:
+  level:
+    root: info
