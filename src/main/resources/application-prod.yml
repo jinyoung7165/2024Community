@@ -5,16 +5,3 @@ spring:
     url: ${DB_HOST}
     username: ${DB_USER}
     password: ${DB_PASSWD}
-#  cloud:
-#    gcp:
-#      credentials:
-#        location: file:${user.home}/config/omoji-server-account.json
-#gcp:
-#  config:
-#    file: ${user.home}/config/omoji-server-account.json
-#  project:
-#    id: omoji-server
-#  bucket:
-#    id: omoji-bucket
-#  dir:
-#    name: img
