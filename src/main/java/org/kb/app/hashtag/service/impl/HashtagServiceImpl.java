@@ -27,11 +27,6 @@ public class HashtagServiceImpl implements HashtagService {
         List<Hashtag> events = hashtagRepository.findHashtagsWithParentIdAndNames(
                 HashtagEnum.EVENT.getValue(),
                 postRequestDto.getEvents().stream().collect(Collectors.toList()));
-        List<Hashtag> styles = hashtagRepository.findHashtagsWithParentIdAndNames(
-                HashtagEnum.STYLE.getValue(),
-                postRequestDto.getEvents().stream().collect(Collectors.toList()));
-
-        events.addAll(styles);
 
         return HashtagPost.createHashtagPosts(events);
     }

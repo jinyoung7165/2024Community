@@ -30,7 +30,6 @@ public class PostRequestDto {
 
     private List<String> events = new ArrayList<>(); //상황
 
-    private List<String> styles = new ArrayList<>(); //스타일
 
     private String location = null; //장소
 

@@ -2,7 +2,7 @@ package org.kb.app.hashtag.enums;
 
 public enum HashtagEnum {
 
-    EVENT(1L), STYLE(9L), LOCATION(10L);
+    EVENT(1L), LOCATION(6L);
     private final Long value;
     HashtagEnum(Long value) {
         this.value = value;
