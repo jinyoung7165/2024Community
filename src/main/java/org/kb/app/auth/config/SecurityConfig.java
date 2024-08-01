@@ -52,6 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests() //아래부터 인증 절차 설정하겠다
                     .antMatchers(HttpMethod.OPTIONS).permitAll()
                     .antMatchers("/api/v1/auth/**").permitAll()
+                    .antMatchers("/api/v2/**").permitAll()
                     .antMatchers("/favicon.*").anonymous()
                     //.antMatchers("/api/v1/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated();

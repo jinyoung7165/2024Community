@@ -38,15 +38,6 @@ logging:
     root: info
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql: trace
---- #dev 환경
-spring:
-  config:
-    activate:
-      on-profile: dev
-    import: application-oauth.yml
-logging:
-  level:
-    root: info
 
 --- #prod 환경
 spring:
@@ -54,9 +45,9 @@ spring:
     activate:
       on-profile: prod
     import: application-oauth.yml
-  jpa.hibernate.ddl-auto: update
-server:
-  port: 9090
+  jpa.hibernate.ddl-auto: none
 logging:
   level:
     root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
